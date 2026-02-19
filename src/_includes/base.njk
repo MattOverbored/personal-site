@@ -4,6 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{{ title if title else "Matt Hovis" }}</title>
+  <script>
+    (function() {
+      var savedTheme = localStorage.getItem('theme-preference');
+      var theme = savedTheme === 'light' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
   <link rel="stylesheet" href="/styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -33,6 +40,14 @@
         <li><a href="/blog/" {% if navPage == "blog" %}aria-current="page"{% endif %}>Blog</a></li>
         <li><a href="/#contact">Contact</a></li>
       </ul>
+      <button class="theme-toggle" type="button" aria-label="Switch to light mode" aria-pressed="false">
+        <span class="theme-toggle__label theme-toggle__label--dark" aria-hidden="true">Dark mode</span>
+        <span class="theme-toggle__label theme-toggle__label--light" aria-hidden="true">Light mode</span>
+        <span class="theme-toggle__thumb" aria-hidden="true">
+          <span class="theme-toggle__icon theme-toggle__icon--sun">☀</span>
+          <span class="theme-toggle__icon theme-toggle__icon--moon">☾</span>
+        </span>
+      </button>
     </div>
   </nav>
 
@@ -44,6 +59,33 @@
       <p>&copy; 2026 Matt Hovis. Built with care, and probably a podcast in the background.</p>
     </div>
   </footer>
+
+  <script>
+    (function() {
+      var toggle = document.querySelector('.theme-toggle');
+      if (!toggle) return;
+
+      var storageKey = 'theme-preference';
+      var root = document.documentElement;
+
+      function applyTheme(theme) {
+        var isLight = theme === 'light';
+        root.setAttribute('data-theme', isLight ? 'light' : 'dark');
+        toggle.setAttribute('aria-pressed', String(isLight));
+        toggle.setAttribute('aria-label', isLight ? 'Switch to dark mode' : 'Switch to light mode');
+      }
+
+      var initialTheme = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+      applyTheme(initialTheme);
+
+      toggle.addEventListener('click', function() {
+        var current = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+        var next = current === 'dark' ? 'light' : 'dark';
+        applyTheme(next);
+        localStorage.setItem(storageKey, next);
+      });
+    })();
+  </script>
 
 </body>
 </html>
