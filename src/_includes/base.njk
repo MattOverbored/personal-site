@@ -19,6 +19,7 @@
       });
     }
   </script>
+  <script>if(localStorage.getItem('theme')==='light')document.documentElement.setAttribute('data-theme','light');</script>
 </head>
 <body>
 
@@ -33,6 +34,14 @@
         <li><a href="/blog/" {% if navPage == "blog" %}aria-current="page"{% endif %}>Blog</a></li>
         <li><a href="/#contact">Contact</a></li>
       </ul>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <span class="theme-toggle__track">
+          <span class="theme-toggle__thumb">
+            <span class="theme-toggle__icon--dark">🌙</span>
+            <span class="theme-toggle__icon--light">☀️</span>
+          </span>
+        </span>
+      </button>
     </div>
   </nav>
 
@@ -45,5 +54,20 @@
     </div>
   </footer>
 
+  <script>
+    (function () {
+      var btn = document.getElementById('themeToggle');
+      btn.addEventListener('click', function () {
+        var isLight = document.documentElement.getAttribute('data-theme') === 'light';
+        if (isLight) {
+          document.documentElement.removeAttribute('data-theme');
+          localStorage.setItem('theme', 'dark');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'light');
+          localStorage.setItem('theme', 'light');
+        }
+      });
+    })();
+  </script>
 </body>
 </html>

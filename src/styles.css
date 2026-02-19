@@ -40,6 +40,7 @@
   --radius-sm: 6px;
   --shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
   --transition: 0.2s ease;
+  --color-nav-bg: rgba(13, 17, 23, 0.85);
 }
 
 html {
@@ -102,7 +103,7 @@ ul {
   left: 0;
   right: 0;
   z-index: 100;
-  background: rgba(13, 17, 23, 0.85);
+  background: var(--color-nav-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--color-border);
@@ -1542,5 +1543,170 @@ a.nav-logo {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem;
+  }
+}
+
+/* ============================================
+   LIGHT DRACULA THEME
+   ============================================ */
+
+[data-theme="light"] {
+  --color-bg: #f8f8f2;
+  --color-bg-alt: #ebebeb;
+  --color-surface: #e4e4de;
+  --color-border: #c8c8c2;
+  --color-text: #282a36;
+  --color-text-muted: #6272a4;
+  --color-accent: #6272a4;
+  --color-accent-hover: #7b8ec4;
+  --color-nav-bg: rgba(248, 248, 242, 0.9);
+  --shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+
+  /* Light Dracula accent colors — darkened for readability on light bg */
+  --color-dracula-cyan: #0189a8;
+  --color-dracula-green: #158a3a;
+  --color-dracula-orange: #b5600e;
+  --color-dracula-pink: #a8186e;
+  --color-dracula-purple: #6d28d9;
+  --color-dracula-yellow: #7a6c00;
+  --color-dracula-red: #c41414;
+
+  /* Interest card accents */
+  --color-games: #6d28d9;
+  --color-comics: #b5600e;
+  --color-gunpla: #158a3a;
+  --color-braves: #c41414;
+}
+
+/* Gradient text — start color was white (#f8f8f2), invisible on light bg */
+[data-theme="light"] .hero-name,
+[data-theme="light"] .pro-page-hero__name,
+[data-theme="light"] .blog-page-hero__title {
+  background: linear-gradient(135deg, #282a36 0%, #0189a8 40%, #6d28d9 75%, #a8186e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Skill chips & badges — re-tune opaque RGBA backgrounds for light surface */
+[data-theme="light"] .pro-badge {
+  background: rgba(1, 137, 168, 0.12);
+  border-color: rgba(1, 137, 168, 0.4);
+}
+
+[data-theme="light"] .pro-skill {
+  background: rgba(109, 40, 217, 0.08);
+  border-color: rgba(109, 40, 217, 0.28);
+}
+
+[data-theme="light"] .pro-skill--cyan {
+  background: rgba(1, 137, 168, 0.1);
+  border-color: rgba(1, 137, 168, 0.35);
+}
+
+[data-theme="light"] .pro-skill--purple {
+  background: rgba(109, 40, 217, 0.08);
+  border-color: rgba(109, 40, 217, 0.3);
+}
+
+[data-theme="light"] .pro-skill--green {
+  background: rgba(21, 138, 58, 0.08);
+  border-color: rgba(21, 138, 58, 0.3);
+}
+
+[data-theme="light"] .pro-skill--orange {
+  background: rgba(181, 96, 14, 0.08);
+  border-color: rgba(181, 96, 14, 0.3);
+}
+
+[data-theme="light"] .pro-linkedin {
+  border-color: rgba(1, 137, 168, 0.4);
+}
+
+[data-theme="light"] .pro-linkedin:hover {
+  background: rgba(1, 137, 168, 0.1);
+  border-color: var(--color-dracula-cyan);
+}
+
+[data-theme="light"] .pro-ach-card {
+  background: rgba(168, 24, 110, 0.04);
+}
+
+[data-theme="light"] .pro-ach-card:hover {
+  background: rgba(168, 24, 110, 0.09);
+}
+
+[data-theme="light"] .blog-tag-link:hover,
+[data-theme="light"] .blog-tag-link--active {
+  background: rgba(109, 40, 217, 0.08);
+}
+
+[data-theme="light"] .blog-tag-pill {
+  background: rgba(109, 40, 217, 0.08);
+  border-color: rgba(109, 40, 217, 0.3);
+}
+
+[data-theme="light"] .blog-tag-pill:hover,
+[data-theme="light"] .blog-tag-pill--active {
+  background: rgba(109, 40, 217, 0.15);
+}
+
+[data-theme="light"] .blog-post-content blockquote {
+  background: rgba(109, 40, 217, 0.05);
+}
+
+/* ============================================
+   THEME TOGGLE
+   ============================================ */
+
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin-left: 1.5rem;
+}
+
+.theme-toggle__track {
+  width: 48px;
+  height: 26px;
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: 100px;
+  position: relative;
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.theme-toggle__thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  background: var(--color-dracula-purple);
+  border-radius: 50%;
+  transition: transform 0.2s ease, background 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  line-height: 1;
+}
+
+[data-theme="light"] .theme-toggle__thumb {
+  transform: translateX(22px);
+  background: var(--color-dracula-orange);
+}
+
+.theme-toggle__icon--light { display: none; }
+[data-theme="light"] .theme-toggle__icon--dark  { display: none; }
+[data-theme="light"] .theme-toggle__icon--light { display: block; }
+
+@media (max-width: 480px) {
+  .theme-toggle {
+    margin-left: 1rem;
   }
 }
