@@ -1,0 +1,12 @@
+{
+  "name": "matt-hovis-personal-site",
+  "version": "1.0.0",
+  "description": "Matt Hovis personal site",
+  "scripts": {
+    "build": "eleventy",
+    "start": "eleventy --serve"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  }
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ title if title else "Matt Hovis" }}</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">MH</a>
+      <ul class="nav-links">
+        <li><a href="/#about" {% if navPage == "home" %}aria-current="page"{% endif %}>About</a></li>
+        <li><a href="/professional/" {% if navPage == "professional" %}aria-current="page"{% endif %}>Professional</a></li>
+        <li><a href="/#interests">Interests</a></li>
+        <li><a href="/blog/" {% if navPage == "blog" %}aria-current="page"{% endif %}>Blog</a></li>
+        <li><a href="/#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  {{ content | safe }}
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Matt Hovis. Built with care, and probably a podcast in the background.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
