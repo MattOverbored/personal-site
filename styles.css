@@ -222,6 +222,183 @@ ul {
 .deco-ring--3 { width: 1050px; height: 1050px; opacity: 0.12; }
 
 /* ============================================
+   SOLAR SYSTEM PLANETS
+   ============================================ */
+
+@keyframes orbit-spin    { to { transform: rotate(360deg);  } }
+@keyframes orbit-counter { to { transform: rotate(-360deg); } }
+
+/* Orbit wrapper — anchored at hero center */
+.planet-orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+/* Counter-rotating body keeps the planet dot upright */
+.planet-counter {
+  position: absolute;
+  pointer-events: auto;
+  cursor: default;
+}
+
+.planet-dot {
+  border-radius: 50%;
+  position: relative;
+}
+
+/* Tooltip */
+.planet-label {
+  position: absolute;
+  bottom: calc(100% + 7px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(13, 17, 23, 0.92);
+  color: #f8f8f2;
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 500;
+  padding: 3px 9px;
+  border-radius: 5px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 20;
+  border: 1px solid rgba(248,248,242,0.08);
+}
+
+.planet-counter:hover .planet-label { opacity: 1; }
+
+/* ---- Mercury — Ring 1 (r=250px), 80s ---- */
+.planet--mercury { animation: orbit-spin 80s linear infinite; }
+.planet--mercury .planet-counter {
+  left: 247px; top: -3px;
+  animation: orbit-counter 80s linear infinite;
+}
+.planet--mercury .planet-dot { width: 6px; height: 6px; background: #aaa9ad; }
+
+/* ---- Venus — Ring 1 (r=250px), 110s, start ~90° ---- */
+.planet--venus {
+  animation: orbit-spin 110s linear infinite;
+  animation-delay: -27.5s;
+}
+.planet--venus .planet-counter {
+  left: 246px; top: -5px;
+  animation: orbit-counter 110s linear infinite;
+  animation-delay: -27.5s;
+}
+.planet--venus .planet-dot { width: 9px; height: 9px; background: #e8cda0; }
+
+/* ---- Earth — Ring 1 (r=250px), 140s, start ~180° ---- */
+.planet--earth {
+  animation: orbit-spin 140s linear infinite;
+  animation-delay: -70s;
+}
+.planet--earth .planet-counter {
+  left: 245px; top: -5px;
+  animation: orbit-counter 140s linear infinite;
+  animation-delay: -70s;
+}
+.planet--earth .planet-dot {
+  width: 10px; height: 10px;
+  background: radial-gradient(circle at 38% 35%, #6ab4e8, #2e6ea6);
+}
+
+/* ---- Mars — Ring 1 (r=250px), 170s, start ~270° ---- */
+.planet--mars {
+  animation: orbit-spin 170s linear infinite;
+  animation-delay: -127.5s;
+}
+.planet--mars .planet-counter {
+  left: 246px; top: -4px;
+  animation: orbit-counter 170s linear infinite;
+  animation-delay: -127.5s;
+}
+.planet--mars .planet-dot { width: 8px; height: 8px; background: #c1440e; }
+
+/* ---- Jupiter — Ring 2 (r=375px), 200s, start ~30° ---- */
+.planet--jupiter {
+  animation: orbit-spin 200s linear infinite;
+  animation-delay: -16.7s;
+}
+.planet--jupiter .planet-counter {
+  left: 368px; top: -7px;
+  animation: orbit-counter 200s linear infinite;
+  animation-delay: -16.7s;
+}
+.planet--jupiter .planet-dot {
+  width: 14px; height: 14px;
+  background: radial-gradient(circle at 35% 35%, #e0b87a, #c88b3a);
+  box-shadow: 0 0 5px rgba(200,139,58,0.35);
+}
+
+/* ---- Saturn — Ring 2 (r=375px), 240s, start ~150° ---- */
+.planet--saturn {
+  animation: orbit-spin 240s linear infinite;
+  animation-delay: -100s;
+}
+.planet--saturn .planet-counter {
+  left: 370px; top: -6px;
+  animation: orbit-counter 240s linear infinite;
+  animation-delay: -100s;
+}
+.planet--saturn .planet-dot {
+  width: 11px; height: 11px;
+  background: #e8d5a3;
+}
+/* Saturn ring */
+.planet--saturn .planet-counter::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%) rotate(-25deg);
+  width: 26px; height: 8px;
+  border: 1.5px solid rgba(232,213,163,0.45);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* ---- Uranus — Ring 2 (r=375px), 280s, start ~270° ---- */
+.planet--uranus {
+  animation: orbit-spin 280s linear infinite;
+  animation-delay: -210s;
+}
+.planet--uranus .planet-counter {
+  left: 371px; top: -5px;
+  animation: orbit-counter 280s linear infinite;
+  animation-delay: -210s;
+}
+.planet--uranus .planet-dot { width: 9px; height: 9px; background: #7de8e8; }
+
+/* ---- Neptune — Ring 3 (r=525px), 320s, start ~60° ---- */
+.planet--neptune {
+  animation: orbit-spin 320s linear infinite;
+  animation-delay: -53.3s;
+}
+.planet--neptune .planet-counter {
+  left: 520px; top: -5px;
+  animation: orbit-counter 320s linear infinite;
+  animation-delay: -53.3s;
+}
+.planet--neptune .planet-dot { width: 10px; height: 10px; background: #4b70dd; }
+
+/* ---- Pluto — Ring 3 (r=525px), 360s, start ~200° ---- */
+.planet--pluto {
+  animation: orbit-spin 360s linear infinite;
+  animation-delay: -200s;
+}
+.planet--pluto .planet-counter {
+  left: 522px; top: -3px;
+  animation: orbit-counter 360s linear infinite;
+  animation-delay: -200s;
+}
+.planet--pluto .planet-dot { width: 6px; height: 6px; background: #c2a378; }
+
+/* ============================================
    BUTTONS
    ============================================ */
 
@@ -1047,6 +1224,20 @@ a.nav-logo {
   .deco-ring--1 { width: 320px; height: 320px; }
   .deco-ring--2 { width: 500px; height: 500px; }
   .deco-ring--3 { width: 700px; height: 700px; }
+
+  /* Reposition planets to match smaller mobile rings */
+  /* Ring 1 radius = 160px */
+  .planet--mercury .planet-counter { left: 157px; top: -3px; }
+  .planet--venus   .planet-counter { left: 156px; top: -5px; }
+  .planet--earth   .planet-counter { left: 155px; top: -5px; }
+  .planet--mars    .planet-counter { left: 156px; top: -4px; }
+  /* Ring 2 radius = 250px */
+  .planet--jupiter .planet-counter { left: 243px; top: -7px; }
+  .planet--saturn  .planet-counter { left: 245px; top: -6px; }
+  .planet--uranus  .planet-counter { left: 246px; top: -5px; }
+  /* Ring 3 radius = 350px */
+  .planet--neptune .planet-counter { left: 345px; top: -5px; }
+  .planet--pluto   .planet-counter { left: 347px; top: -3px; }
 
   .pro-featured {
     padding: 1.75rem;
