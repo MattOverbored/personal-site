@@ -8,13 +8,22 @@ permalink: /
   <!-- Hero -->
   <header class="hero">
     <div class="hero-content">
-      <p class="hero-eyebrow">Hey there, I'm</p>
+      <p class="hero-eyebrow">Hi, I'm</p>
       <h1 class="hero-name">Matt Hovis</h1>
       <p class="hero-role">Business Analyst</p>
       <p class="hero-tagline">
-        Turning data into decisions by day, exploring virtual worlds, building Gunpla, and cheering for the Braves by night.
+        I turn messy data and vague requests into clear answers, better workflows, and reports people actually use.
       </p>
-      <a href="#about" class="btn-primary">Learn More</a>
+      <ul class="hero-chips" aria-label="Key skills">
+        <li>SQL</li>
+        <li>Jira</li>
+        <li>Process improvement</li>
+        <li>Reporting</li>
+      </ul>
+      <div class="hero-cta-group">
+        <a href="#work" class="btn-primary">View Work</a>
+        <a href="#contact" class="btn-outline">Get in Touch</a>
+      </div>
     </div>
     <div class="hero-decoration" aria-hidden="true">
       <div class="deco-ring deco-ring--1"></div>
@@ -23,39 +32,114 @@ permalink: /
     </div>
   </header>
 
+  <!-- Work -->
+  <section id="work" class="section section--alt">
+    <div class="container">
+      <h2 class="section-title">Selected work</h2>
+      <p class="section-subtitle">A few examples of the kind of problems I solve and how I approach them.</p>
+
+      <div class="work-grid">
+
+        <!-- Card 1 -->
+        <article class="work-card">
+          <h3 class="work-card__title">Operational reporting</h3>
+          <p class="work-card__body">Built recurring SQL reports that made daily metrics easy to track and share.</p>
+          <dl class="work-card__meta">
+            <div class="work-card__meta-row">
+              <dt>Problem</dt>
+              <dd>Scattered metrics and manual checks</dd>
+            </div>
+            <div class="work-card__meta-row">
+              <dt>What I did</dt>
+              <dd>Defined queries and automated outputs</dd>
+            </div>
+            <div class="work-card__meta-row">
+              <dt>Outcome</dt>
+              <dd>Faster visibility into performance</dd>
+            </div>
+          </dl>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="work-card">
+          <h3 class="work-card__title">Jira workflow cleanup</h3>
+          <p class="work-card__body">Simplified workflows and fields so teams spent less time fighting the tool.</p>
+          <dl class="work-card__meta">
+            <div class="work-card__meta-row">
+              <dt>Problem</dt>
+              <dd>Inconsistent statuses and noisy fields</dd>
+            </div>
+            <div class="work-card__meta-row">
+              <dt>What I did</dt>
+              <dd>Standardized workflow and governance</dd>
+            </div>
+            <div class="work-card__meta-row">
+              <dt>Outcome</dt>
+              <dd>Cleaner tickets and smoother handoffs</dd>
+            </div>
+          </dl>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="work-card">
+          <h3 class="work-card__title">Process mapping</h3>
+          <p class="work-card__body">Documented workflows and gaps to align stakeholders and reduce rework.</p>
+          <dl class="work-card__meta">
+            <div class="work-card__meta-row">
+              <dt>Problem</dt>
+              <dd>Unclear steps and ownership</dd>
+            </div>
+            <div class="work-card__meta-row">
+              <dt>What I did</dt>
+              <dd>Mapped current state and proposed improvements</dd>
+            </div>
+            <div class="work-card__meta-row">
+              <dt>Outcome</dt>
+              <dd>Less confusion, fewer repeats</dd>
+            </div>
+          </dl>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
   <!-- About -->
   <section id="about" class="section">
     <div class="container">
-      <h2 class="section-title">About Me</h2>
+      <h2 class="section-title">About</h2>
       <div class="about-grid">
         <div class="about-text">
           <p>
-            I'm a business analyst with a passion for finding the story hidden inside data and turning it into
-            actionable insight. I enjoy bridging the gap between business needs and technical solutions, helping
-            teams make smarter, faster decisions.
+            I'm a business analyst in software. I spend most days pulling data, mapping processes, and translating
+            what people need into something teams can build and measure. I like work that makes things clearer:
+            fewer steps, fewer surprises, better decisions.
           </p>
           <p>
-            Outside of work you'll find me deep in a video game, mid-way through a manga volume, carefully
-            following the instructions on a new Gunpla kit, or anxiously watching the Atlanta Braves work
-            their way through a playoff run.
+            Outside of work, I'm usually gaming, reading comics and manga, building Gunpla, or keeping up with
+            the Braves.
           </p>
         </div>
         <div class="about-cards">
           <div class="stat-card">
             <span class="stat-icon">&#128202;</span>
-            <span class="stat-label">Business Analyst</span>
+            <span class="stat-label">What I do</span>
+            <span class="stat-detail">Requirements, reporting, process mapping</span>
           </div>
           <div class="stat-card">
-            <span class="stat-icon">&#127918;</span>
-            <span class="stat-label">Gamer &amp; Gaming Historian</span>
+            <span class="stat-icon">&#128295;</span>
+            <span class="stat-label">Tools</span>
+            <span class="stat-detail">SQL, Jira, Excel</span>
           </div>
           <div class="stat-card">
-            <span class="stat-icon">&#128214;</span>
-            <span class="stat-label">Comics &amp; Manga Reader</span>
+            <span class="stat-icon">&#9889;</span>
+            <span class="stat-label">Strengths</span>
+            <span class="stat-detail">Stakeholder communication, simplifying complexity</span>
           </div>
           <div class="stat-card">
-            <span class="stat-icon">&#9918;</span>
-            <span class="stat-label">Braves Fan</span>
+            <span class="stat-icon">&#127970;</span>
+            <span class="stat-label">Domain</span>
+            <span class="stat-detail">Software operations</span>
           </div>
         </div>
       </div>
@@ -65,7 +149,7 @@ permalink: /
   <!-- Interests -->
   <section id="interests" class="section section--alt">
     <div class="container">
-      <h2 class="section-title">Interests &amp; Hobbies</h2>
+      <h2 class="section-title">Interests</h2>
       <p class="section-subtitle">A few of the things that keep life interesting.</p>
 
       <div class="interests-grid">
@@ -77,16 +161,12 @@ permalink: /
             <h3>Video Games</h3>
           </div>
           <p>
-            Gaming isn't just a hobby. It's a passion with deep roots. From the Atari era and the 8-bit
-            revolution to modern open-world epics and indie gems, I've followed the industry through every
-            generation and genre. Whether it's dissecting game design, discussing industry history, or simply
-            enjoying a great playthrough, games are a constant in my life.
+            I'm here for strong systems and good stories. I like digging into why games work, not just finishing them.
           </p>
           <ul class="interest-tags">
-            <li>Gaming History</li>
-            <li>Industry News</li>
             <li>RPGs</li>
             <li>Retro Games</li>
+            <li>Game Design</li>
           </ul>
         </div>
 
@@ -97,15 +177,12 @@ permalink: /
             <h3>Comics &amp; Manga</h3>
           </div>
           <p>
-            There's something special about sequential art as a storytelling medium. I read across the
-            spectrum, from superhero runs and indie comics to shonen epics and slice-of-life manga.
-            The intersection of art and narrative in comics is endlessly compelling to me.
+            I read across superhero, indie, and slice-of-life. Sequential art is my favorite storytelling format.
           </p>
           <ul class="interest-tags">
             <li>Manga</li>
-            <li>Superhero Comics</li>
+            <li>Superhero</li>
             <li>Indie Comics</li>
-            <li>Sequential Art</li>
           </ul>
         </div>
 
@@ -116,12 +193,9 @@ permalink: /
             <h3>Gunpla</h3>
           </div>
           <p>
-            Building Gunpla (Gundam plastic model kits) is my hands-on creative outlet. There's a meditative
-            quality to the process: from clipping and cleaning runners to panel lining and posing the
-            finished build. Each kit is a small project with a satisfying result.
+            Hands-on, detail-focused, and relaxing. I'm always improving cleanup, panel lining, and display builds.
           </p>
           <ul class="interest-tags">
-            <li>Model Kits</li>
             <li>Gundam</li>
             <li>Panel Lining</li>
             <li>Display Builds</li>
@@ -138,15 +212,12 @@ permalink: /
             <h3>Atlanta Braves</h3>
           </div>
           <p>
-            Chop on. The Atlanta Braves have been my team through thick and thin. Baseball is a sport of
-            statistics, strategy, and stories, all things I love. Whether following the box scores or
-            catching a game at Truist Park, Braves baseball is a big part of my summers.
+            Lifelong fan. I'm happy watching a random Tuesday game as much as a playoff run.
           </p>
           <ul class="interest-tags">
             <li>Atlanta Braves</li>
             <li>MLB</li>
             <li>Baseball</li>
-            <li>Truist Park</li>
           </ul>
         </div>
 
@@ -157,10 +228,14 @@ permalink: /
   <!-- Contact -->
   <section id="contact" class="section">
     <div class="container container--narrow">
-      <h2 class="section-title">Get In Touch</h2>
+      <h2 class="section-title">Get in touch</h2>
       <p class="section-subtitle">
-        Want to connect? Feel free to reach out whether it's about work, games, or anything in between.
+        Want to connect? If it's about analytics work, collaboration, or even swapping game recs, I'm easy to reach.
       </p>
-      <a href="mailto:matt.hovis@icloud.com" class="btn-primary">Say Hello</a>
+      <div class="contact-actions">
+        <a href="mailto:matt.hovis@icloud.com" class="btn-primary">Email me</a>
+        <a href="https://www.linkedin.com/in/matthewkhovis" class="btn-outline" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://github.com/MattOverbored" class="btn-outline" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
     </div>
   </section>
