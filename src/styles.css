@@ -746,6 +746,7 @@ ul {
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;
+  z-index: 10;
 }
 
 .interest-card--gunpla:hover .gunpla-photo-container {
