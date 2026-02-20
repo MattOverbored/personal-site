@@ -1,6 +1,7 @@
 module.exports = function (eleventyConfig) {
   // Passthrough copies
   eleventyConfig.addPassthroughCopy("src/styles.css");
+  eleventyConfig.addPassthroughCopy("src/*.png");
   eleventyConfig.addPassthroughCopy({ "CNAME": "CNAME" });
 
   // Blog posts collection (newest first)
