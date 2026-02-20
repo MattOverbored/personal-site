@@ -656,6 +656,8 @@ ul {
 
 .interest-card--gunpla {
   overflow: visible;
+  position: relative;
+  z-index: 5;
 }
 
 .interest-card::before {
@@ -741,12 +743,12 @@ ul {
   transform: translateY(-50%);
   width: 280px;
   margin-left: 2rem;
-  display: flex;
-  align-items: center;
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;
-  z-index: 10;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
 }
 
 .interest-card--gunpla:hover .gunpla-photo-container {
