@@ -18,19 +18,22 @@
     <div class="nav-inner">
       <a href="/" class="nav-logo">MH</a>
       <ul class="nav-links">
-        <li><a href="/#about" {% if navPage == "home" %}aria-current="page"{% endif %}>About</a></li>
-        <li><a href="/professional/" {% if navPage == "professional" %}aria-current="page"{% endif %}>Professional</a></li>
+        <li><a href="/#about">About</a></li>
+        <li><a href="/#work">Work</a></li>
         <li><a href="/#interests">Interests</a></li>
         <li><a href="/#contact">Contact</a></li>
       </ul>
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-        <span class="theme-toggle__track">
-          <span class="theme-toggle__thumb">
-            <span class="theme-toggle__icon--dark">🌙</span>
-            <span class="theme-toggle__icon--light">☀️</span>
+      <div class="nav-actions">
+        <a href="/resume.pdf" class="btn-resume" target="_blank" rel="noopener noreferrer">Resume</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <span class="theme-toggle__track">
+            <span class="theme-toggle__thumb">
+              <span class="theme-toggle__icon--dark">🌙</span>
+              <span class="theme-toggle__icon--light">☀️</span>
+            </span>
           </span>
-        </span>
-      </button>
+        </button>
+      </div>
     </div>
   </nav>
 
@@ -39,7 +42,7 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <p>&copy; 2026 Matt Hovis. Built with care, and probably a podcast in the background.</p>
+      <p>&copy; 2026 Matt Hovis. Built with late-night tinkering.</p>
     </div>
   </footer>
 
