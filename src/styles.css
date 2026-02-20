@@ -654,6 +654,10 @@ ul {
   overflow: hidden;
 }
 
+.interest-card--gunpla {
+  overflow: visible;
+}
+
 .interest-card::before {
   content: '';
   position: absolute;
@@ -732,21 +736,20 @@ ul {
 
 .gunpla-photo-container {
   position: absolute;
-  top: 0;
-  right: -320px;
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
   width: 280px;
-  height: 100%;
+  margin-left: 2rem;
   display: flex;
   align-items: center;
   opacity: 0;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  transform: translateX(20px);
+  transition: opacity 0.3s ease;
   pointer-events: none;
 }
 
 .interest-card--gunpla:hover .gunpla-photo-container {
   opacity: 1;
-  transform: translateX(0);
 }
 
 .gunpla-photo {
