@@ -12,13 +12,18 @@ permalink: /
       <h1 class="hero-name">Matt Hovis</h1>
       <p class="hero-role">Business Analyst</p>
       <p class="hero-tagline">
-        I turn messy data and vague requests into clear answers, better workflows, and reports people actually use.
+        I turn ambiguous requests into clear requirements, validated fixes, and measurable outcomes across enterprise SaaS operations.
       </p>
+      <ul class="hero-proof" aria-label="Professional credibility highlights">
+        <li>11+ years in operations and analysis</li>
+        <li>SQL certified</li>
+        <li>Atlassian certified (Jira and Confluence)</li>
+        <li>Enterprise SaaS and service workflows</li>
+      </ul>
       <ul class="hero-chips" aria-label="Key skills">
-        <li>SQL</li>
-        <li>Jira</li>
-        <li>Process improvement</li>
-        <li>Reporting</li>
+        <li>Business Analysis</li>
+        <li>SQL Root Cause Analysis</li>
+        <li>Cross-Functional Delivery</li>
       </ul>
       <div class="hero-cta-group">
         <a href="#work" class="btn-primary">View Work</a>
@@ -39,67 +44,24 @@ permalink: /
       <p class="section-subtitle">A few examples of the kind of problems I solve and how I approach them.</p>
 
       <div class="work-grid">
-
-        <!-- Card 1 -->
-        <article class="work-card work-card--1">
-          <h3 class="work-card__title">Operational reporting</h3>
-          <p class="work-card__body">Built recurring SQL reports that made daily metrics easy to track and share.</p>
-          <dl class="work-card__meta">
-            <div class="work-card__meta-row">
-              <dt>Problem</dt>
-              <dd>Scattered metrics and manual checks</dd>
+        {% for item in work %}
+        <a href="/work/{{ item.slug }}/" class="work-card-link">
+          <article class="work-card work-card--{{ item.cardNumber }}">
+            <h3 class="work-card__title">{{ item.title }}</h3>
+            <p class="work-card__meta-line" aria-label="Project quick facts">
+              <span>{{ item.role }}</span>
+              <span>{{ item.timeframe }}</span>
+            </p>
+            <p class="work-card__metric"><strong>Impact:</strong> {{ item.metric }}</p>
+            <p class="work-card__body">{{ item.shortDesc }}</p>
+            <div class="work-card__highlights">
+              <p>{{ item.focus }}</p>
+              <p>{{ item.proof }}</p>
             </div>
-            <div class="work-card__meta-row">
-              <dt>What I did</dt>
-              <dd>Defined queries and automated outputs</dd>
-            </div>
-            <div class="work-card__meta-row">
-              <dt>Outcome</dt>
-              <dd>Faster visibility into performance</dd>
-            </div>
-          </dl>
-        </article>
-
-        <!-- Card 2 -->
-        <article class="work-card work-card--2">
-          <h3 class="work-card__title">Jira workflow cleanup</h3>
-          <p class="work-card__body">Simplified workflows and fields so teams spent less time fighting the tool.</p>
-          <dl class="work-card__meta">
-            <div class="work-card__meta-row">
-              <dt>Problem</dt>
-              <dd>Inconsistent statuses and noisy fields</dd>
-            </div>
-            <div class="work-card__meta-row">
-              <dt>What I did</dt>
-              <dd>Standardized workflow and governance</dd>
-            </div>
-            <div class="work-card__meta-row">
-              <dt>Outcome</dt>
-              <dd>Cleaner tickets and smoother handoffs</dd>
-            </div>
-          </dl>
-        </article>
-
-        <!-- Card 3 -->
-        <article class="work-card work-card--3">
-          <h3 class="work-card__title">Process mapping</h3>
-          <p class="work-card__body">Documented workflows and gaps to align stakeholders and reduce rework.</p>
-          <dl class="work-card__meta">
-            <div class="work-card__meta-row">
-              <dt>Problem</dt>
-              <dd>Unclear steps and ownership</dd>
-            </div>
-            <div class="work-card__meta-row">
-              <dt>What I did</dt>
-              <dd>Mapped current state and proposed improvements</dd>
-            </div>
-            <div class="work-card__meta-row">
-              <dt>Outcome</dt>
-              <dd>Less confusion, fewer repeats</dd>
-            </div>
-          </dl>
-        </article>
-
+            <span class="work-card__cta">Read more →</span>
+          </article>
+        </a>
+        {% endfor %}
       </div>
     </div>
   </section>
@@ -111,35 +73,34 @@ permalink: /
       <div class="about-grid">
         <div class="about-text">
           <p>
-            I'm a business analyst in software. I spend most days pulling data, mapping processes, and translating
-            what people need into something teams can build and measure. I like work that makes things clearer:
-            fewer steps, fewer surprises, better decisions.
+            I'm a business analyst focused on enterprise SaaS and service operations. I translate operational ambiguity
+            into requirements teams can build, test, and release with confidence.
           </p>
           <p>
-            Outside of work, I'm usually gaming, reading comics and manga, building Gunpla, or keeping up with
-            the Braves.
+            My approach combines discovery, SQL validation, and engineering collaboration to move from issue discovery to
+            measurable outcomes, including faster defect resolution and cleaner cross-team handoffs.
           </p>
         </div>
         <div class="about-cards">
           <div class="stat-card">
             <span class="stat-icon">&#128202;</span>
             <span class="stat-label">What I do</span>
-            <span class="stat-detail">Requirements, reporting, process mapping</span>
+            <span class="stat-detail">Business analysis, workflow design, production defect resolution</span>
           </div>
           <div class="stat-card">
             <span class="stat-icon">&#128295;</span>
             <span class="stat-label">Tools</span>
-            <span class="stat-detail">SQL, Jira, Excel</span>
+            <span class="stat-detail">SQL, Jira, Confluence, GitHub Copilot, Codex, Claude, Gemini</span>
           </div>
           <div class="stat-card">
             <span class="stat-icon">&#9889;</span>
             <span class="stat-label">Strengths</span>
-            <span class="stat-detail">Stakeholder communication, simplifying complexity</span>
+            <span class="stat-detail">Problem solving, cross-functional delivery, AI-assisted programming</span>
           </div>
           <div class="stat-card">
             <span class="stat-icon">&#127970;</span>
             <span class="stat-label">Domain</span>
-            <span class="stat-detail">Software operations</span>
+            <span class="stat-detail">Enterprise SaaS, retail/service operations, payments, scheduling</span>
           </div>
         </div>
       </div>

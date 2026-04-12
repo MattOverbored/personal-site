@@ -3,6 +3,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/styles.css");
   eleventyConfig.addPassthroughCopy("src/*.png");
   eleventyConfig.addPassthroughCopy("src/*.jpg");
+  eleventyConfig.addPassthroughCopy("src/*.svg");
+  eleventyConfig.addPassthroughCopy("src/*.js");
   eleventyConfig.addPassthroughCopy({ "CNAME": "CNAME" });
 
   // Blog posts collection (newest first)
