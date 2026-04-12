@@ -9,7 +9,17 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <script>if(localStorage.getItem('theme')==='light')document.documentElement.setAttribute('data-theme','light');</script>
+  <script>
+    (function () {
+      try {
+        if (localStorage.getItem('theme') === 'light') {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      } catch (e) {
+        // localStorage may be unavailable in restricted browsing contexts.
+      }
+    })();
+  </script>
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -66,10 +76,18 @@
         var isLight = document.documentElement.getAttribute('data-theme') === 'light';
         if (isLight) {
           document.documentElement.removeAttribute('data-theme');
-          localStorage.setItem('theme', 'dark');
+          try {
+            localStorage.setItem('theme', 'dark');
+          } catch (e) {
+            // Continue without persistence when storage is blocked.
+          }
         } else {
           document.documentElement.setAttribute('data-theme', 'light');
-          localStorage.setItem('theme', 'light');
+          try {
+            localStorage.setItem('theme', 'light');
+          } catch (e) {
+            // Continue without persistence when storage is blocked.
+          }
         }
         window.setTimeout(function () {
           document.body.classList.remove('theme-transitioning');

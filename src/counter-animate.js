@@ -3,14 +3,18 @@
  * Animates numerical values when they come into view
  */
 (function () {
-  const counterElements = document.querySelectorAll('.stat-card, .pro-stat__number, [data-counter]');
-  
+  const shouldReduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (shouldReduceMotion) return;
+
+  const counterElements = document.querySelectorAll('.pro-stat__number, [data-counter]');
+
   if (!counterElements.length) return;
 
   const animationDuration = 2000; // 2 seconds
 
   function animateCounter(element, targetValue) {
-    if (element.dataset.animated === 'true') return; // Already animated
+    if (element.dataset.animated === 'true' || element.dataset.animated === 'running') return;
+    element.dataset.animated = 'running';
 
     const startValue = 0;
     const startTime = Date.now();
@@ -49,25 +53,14 @@
     return match ? parseFloat(match[0]) : 0;
   }
 
-  function animateStatCard(statCard) {
-    // For regular stat cards
-    const detailElement = statCard.querySelector('.stat-detail');
-    if (detailElement && !detailElement.dataset.animated) {
-      const numberText = detailElement.textContent;
-      const targetValue = extractNumber(numberText);
-      if (targetValue > 0) {
-        animateCounter(detailElement, targetValue);
-      }
-    }
-  }
-
   // Use Intersection Observer to detect when elements are visible
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting && !entry.target.dataset.animated) {
+      if (entry.isIntersecting && entry.target.dataset.animated !== 'true' && entry.target.dataset.animated !== 'running') {
         const targetValue = extractNumber(entry.target.textContent);
         if (targetValue > 0) {
           animateCounter(entry.target, targetValue);
+          observer.unobserve(entry.target);
         }
       }
     });

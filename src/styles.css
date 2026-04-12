@@ -35,6 +35,7 @@
 
   --font-display: 'Space Grotesk', sans-serif;
   --font-body: 'Inter', sans-serif;
+  --layout-max-width: 1080px;
 
   --radius: 12px;
   --radius-sm: 6px;
@@ -79,7 +80,7 @@ ul {
    ============================================ */
 
 .container {
-  max-width: 1080px;
+  max-width: var(--layout-max-width);
   margin: 0 auto;
   padding: 0 1.5rem;
 }
@@ -130,7 +131,7 @@ ul {
 }
 
 .nav-inner {
-  max-width: 1100px;
+  max-width: var(--layout-max-width);
   margin: 0 auto;
   padding: 0 1.5rem;
   height: 60px;
@@ -1419,7 +1420,7 @@ a.nav-logo {
     max-width: 100%;
   }
 
-  .nav-toggle {
+  .js-enabled .nav-toggle {
     display: inline-flex;
     order: 2;
   }
@@ -1428,7 +1429,7 @@ a.nav-logo {
     order: 3;
   }
 
-  .nav-links {
+  .js-enabled .nav-links {
     position: absolute;
     top: 60px;
     left: 0;
@@ -1444,7 +1445,7 @@ a.nav-logo {
     -webkit-backdrop-filter: blur(12px);
   }
 
-  .nav-open .nav-links {
+  body.nav-open .nav-links {
     display: flex;
   }
 
@@ -2183,16 +2184,16 @@ a.nav-logo {
 [data-theme="light"] .theme-toggle__icon--light { display: block; }
 
 body,
-.nav,
-.section--alt,
-.work-card,
-.interest-card,
-.stat-card,
-.pro-role-card,
-.pro-cert-item,
-.btn-outline,
-.theme-toggle__track,
-.nav-toggle {
+body.theme-transitioning .nav,
+body.theme-transitioning .section--alt,
+body.theme-transitioning .work-card,
+body.theme-transitioning .interest-card,
+body.theme-transitioning .stat-card,
+body.theme-transitioning .pro-role-card,
+body.theme-transitioning .pro-cert-item,
+body.theme-transitioning .btn-outline,
+body.theme-transitioning .theme-toggle__track,
+body.theme-transitioning .nav-toggle {
   transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
 }
 
@@ -2246,6 +2247,17 @@ body,
 .work-card-link:hover .work-card__cta {
   opacity: 1;
   transform: translateX(6px);
+}
+
+.work-card-link:focus-visible .work-card__cta {
+  opacity: 1;
+  transform: translateX(6px);
+}
+
+.work-card-link:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+  border-radius: var(--radius);
 }
 
 /* ============================================
@@ -2353,6 +2365,9 @@ body,
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  position: sticky;
+  top: 80px;
+  align-self: start;
 }
 
 .work-detail__card {
@@ -2360,8 +2375,6 @@ body,
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
   padding: 1.75rem;
-  position: sticky;
-  top: 80px;
 }
 
 .work-detail__card-heading {
@@ -2407,6 +2420,11 @@ body,
 @media (max-width: 960px) {
   .work-detail__grid {
     grid-template-columns: 1fr;
+  }
+
+  .work-detail__sidebar {
+    position: static;
+    top: auto;
   }
 
   .work-detail__card {

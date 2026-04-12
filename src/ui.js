@@ -1,4 +1,6 @@
 (function () {
+  document.documentElement.classList.add('js-enabled');
+
   const nav = document.querySelector('.nav');
   const navToggle = document.getElementById('navToggle');
   const navLinks = document.querySelector('.nav-links');
